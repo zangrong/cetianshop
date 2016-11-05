@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.cetian.module.plat.model.ShiroUser;
 import com.cetian.module.plat.model.SystemUser;
-import com.cetian.module.plat.service.AccountService;
+import com.cetian.module.plat.service.SystemUserService;
 
 /**
  * 用户修改自己资料的Controller.
@@ -30,7 +30,7 @@ import com.cetian.module.plat.service.AccountService;
 public class ProfileController {
 
 	@Autowired
-	private AccountService accountService;
+	private SystemUserService accountService;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String updateForm(Model model) {

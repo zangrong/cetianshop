@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.cetian.module.plat.model.SystemUser;
-import com.cetian.module.plat.service.AccountService;
+import com.cetian.module.plat.service.SystemUserService;
 
 /**
  * 管理员管理用户的Controller.
@@ -32,7 +32,7 @@ import com.cetian.module.plat.service.AccountService;
 public class UserAdminController {
 
 	@Autowired
-	private AccountService accountService;
+	private SystemUserService accountService;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String list(Model model) {

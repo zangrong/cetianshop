@@ -23,7 +23,7 @@ import com.cetian.core.exception.ServiceException;
 import com.cetian.module.plat.dao.SystemUserDao;
 import com.cetian.module.plat.model.ShiroUser;
 import com.cetian.module.plat.model.SystemUser;
-import com.cetian.module.plat.service.AccountService;
+import com.cetian.module.plat.service.SystemUserService;
 import com.cetian.module.task.dao.TaskDao;
 import com.cetian.plat.data.UserData;
 
@@ -35,7 +35,7 @@ import com.cetian.plat.data.UserData;
 public class AccountServiceTest {
 
 	@InjectMocks
-	private AccountService accountService;
+	private SystemUserService accountService;
 
 	@Mock
 	private SystemUserDao mockUserDao;

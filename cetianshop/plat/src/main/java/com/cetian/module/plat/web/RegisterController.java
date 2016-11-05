@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.cetian.module.plat.model.SystemUser;
-import com.cetian.module.plat.service.AccountService;
+import com.cetian.module.plat.service.SystemUserService;
 
 /**
  * 用户注册的Controller.
@@ -28,7 +28,7 @@ import com.cetian.module.plat.service.AccountService;
 public class RegisterController {
 
 	@Autowired
-	private AccountService accountService;
+	private SystemUserService accountService;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String registerForm() {

@@ -25,7 +25,7 @@ import com.cetian.module.plat.model.SystemUser;
 
 public class ShiroDbRealm extends AuthorizingRealm {
 
-	protected AccountService accountService;
+	protected SystemUserService systemUserService;
 
 	/**
 	 * 认证回调函数,登录时调用.
@@ -33,7 +33,7 @@ public class ShiroDbRealm extends AuthorizingRealm {
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authcToken) throws AuthenticationException {
 		UsernamePasswordToken token = (UsernamePasswordToken) authcToken;
-		SystemUser user = accountService.findUserByLoginName(token.getUsername());
+		SystemUser user = systemUserService.findUserByLoginName(token.getUsername());
 		if (user != null) {
 			byte[] salt = Encodes.decodeHex(user.getSalt());
 			return new SimpleAuthenticationInfo(new ShiroUser(user.getId(), user.getLoginName(), user.getName()),
@@ -49,7 +49,7 @@ public class ShiroDbRealm extends AuthorizingRealm {
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
 		ShiroUser shiroUser = (ShiroUser) principals.getPrimaryPrincipal();
-		SystemUser user = accountService.findUserByLoginName(shiroUser.loginName);
+		SystemUser user = systemUserService.findUserByLoginName(shiroUser.loginName);
 		SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
 		info.addRoles(user.getRoleList());
 		return info;
@@ -60,14 +60,14 @@ public class ShiroDbRealm extends AuthorizingRealm {
 	 */
 	@PostConstruct
 	public void initCredentialsMatcher() {
-		HashedCredentialsMatcher matcher = new HashedCredentialsMatcher(AccountService.HASH_ALGORITHM);
-		matcher.setHashIterations(AccountService.HASH_INTERATIONS);
+		HashedCredentialsMatcher matcher = new HashedCredentialsMatcher(SystemUserService.HASH_ALGORITHM);
+		matcher.setHashIterations(SystemUserService.HASH_INTERATIONS);
 
 		setCredentialsMatcher(matcher);
 	}
 
-	public void setAccountService(AccountService accountService) {
-		this.accountService = accountService;
+	public void setSystemUserService(SystemUserService systemUserService) {
+		this.systemUserService = systemUserService;
 	}
 
 
