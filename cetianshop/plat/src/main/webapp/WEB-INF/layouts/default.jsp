@@ -1,5 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
-<%@ taglib prefix="sitemesh" uri="http://www.opensymphony.com/sitemesh/decorator" %>  
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
@@ -16,14 +15,14 @@
     <link rel="stylesheet" type="text/css" href="${ctx}/static/font-awesome/css/font-awesome.min.css"/>
     <link rel="stylesheet" type="text/css" href="${ctx}/static/dist/css/AdminLTE.min.css"/>
     <link rel="stylesheet" type="text/css" href="${ctx}/static/dist/css/skins/_all-skins.min.css"/>
-    <sitemesh:head/>
+    <sitemesh:write property='head' />
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
     <%@ include file="/WEB-INF/layouts/top.jsp"%>
 		<%@ include file="/WEB-INF/layouts/header.jsp"%>
-			<sitemesh:body/>
+        <sitemesh:write property='body' />
 		<%@ include file="/WEB-INF/layouts/footer.jsp"%>
 		<div class="content-wrapper" style="min-height: 500px">
 	                <p>a test</p>

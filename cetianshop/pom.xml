@@ -16,24 +16,24 @@
 		<!-- 主要依赖库的版本定义 -->
 		<argLine>-Dfile.encoding=UTF-8</argLine>
 		<springside.version>4.3.0-SNAPSHOT</springside.version>
-		<spring.version>4.0.5.RELEASE</spring.version>
-		<hibernate.version>4.3.5.Final</hibernate.version>
+		<spring.version>4.3.0.RELEASE</spring.version>
+		<hibernate.version>5.2.4.Final</hibernate.version>
 		<spring-data-jpa.version>1.6.0.RELEASE</spring-data-jpa.version>
 		<tomcat-jdbc.version>7.0.53</tomcat-jdbc.version>
-		<sitemesh.version>2.4.2</sitemesh.version>
-		<shiro.version>1.2.3</shiro.version>
-		<hibernate-validator.version>5.0.3.Final</hibernate-validator.version>
-		<jackson.version>2.4.0</jackson.version>
+		<sitemesh.version>3.0.1</sitemesh.version>
+		<shiro.version>1.3.2</shiro.version>
+		<hibernate-validator.version>5.2.4.Final</hibernate-validator.version>
+		<jackson.version>2.8.1</jackson.version>
 		<aspectj.version>1.7.4</aspectj.version>
-		<slf4j.version>1.7.7</slf4j.version>
+		<slf4j.version>1.7.21</slf4j.version>
 		<logback.version>1.1.2</logback.version>
 		<commons-lang3.version>3.3.2</commons-lang3.version>
 		<guava.version>17.0</guava.version>
-		<junit.version>4.11</junit.version>
+		<junit.version>4.12</junit.version>
 		<assertj.version>1.6.1</assertj.version>
 		<mockito.version>1.9.5</mockito.version>
 		<selenium.version>2.42.2</selenium.version>
-		<jetty.version>7.6.15.v20140411</jetty.version>
+		<jetty.version>9.3.11.v20160721</jetty.version>
 		<h2.version>1.3.176</h2.version>
 	
 		<!-- Plugin的属性定义 -->
@@ -129,7 +129,7 @@
 		</dependency>
 
 		<dependency>
-			<groupId>opensymphony</groupId>
+			<groupId>org.sitemesh</groupId>
 			<artifactId>sitemesh</artifactId>
 			<version>${sitemesh.version}</version>
 			<scope>runtime</scope>
@@ -335,17 +335,22 @@
 		-->
 
 		<!-- jetty -->
-		<dependency>
+		<!--<dependency>
 			<groupId>org.eclipse.jetty.aggregate</groupId>
 			<artifactId>jetty-webapp</artifactId>
 			<version>${jetty.version}</version>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
+		</dependency>-->
+		<!--<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-jsp</artifactId>
 			<version>${jetty.version}</version>
 			<scope>test</scope>
+		</dependency>-->
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-server</artifactId>
+			<version>${jetty.version}</version>
 		</dependency>
 		<!-- TEST end -->
 	</dependencies>
@@ -485,7 +490,7 @@
 			</plugin>
 
 			<!-- jetty插件, 设定context path与spring profile -->
-			<plugin>
+<!--			<plugin>
 				<groupId>org.mortbay.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
 				<version>${jetty.version}</version>
@@ -501,6 +506,24 @@
 					<webAppConfig>
 						<contextPath>/${project.artifactId}</contextPath>
 					</webAppConfig>
+				</configuration>
+			</plugin>-->
+
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>${jetty.version}</version>
+				<configuration>
+					<webApp>
+						<contextPath>/${project.artifactId}</contextPath>
+					</webApp>
+					<systemProperties>
+						<systemProperty>
+							<name>spring.profiles.active</name>
+							<value>development</value>
+						</systemProperty>
+					</systemProperties>
+					<useTestClasspath>true</useTestClasspath>
 				</configuration>
 			</plugin>
 

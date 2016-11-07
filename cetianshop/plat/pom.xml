@@ -147,10 +147,13 @@
 
 			<!-- jetty插件, 设定context path与spring profile -->
 			<plugin>
-				<groupId>org.mortbay.jetty</groupId>
+				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
 				<version>${jetty.version}</version>
 				<configuration>
+					<webApp>
+						<contextPath>/${project.artifactId}</contextPath>
+					</webApp>
 					<systemProperties>
 						<systemProperty>
 							<name>spring.profiles.active</name>
@@ -158,10 +161,6 @@
 						</systemProperty>
 					</systemProperties>
 					<useTestClasspath>true</useTestClasspath>
-
-					<webAppConfig>
-						<contextPath>/${project.artifactId}</contextPath>
-					</webAppConfig>
 				</configuration>
 			</plugin>
 
