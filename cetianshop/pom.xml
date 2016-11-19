@@ -18,7 +18,7 @@
 		<springside.version>4.3.0-SNAPSHOT</springside.version>
 		<spring.version>4.3.0.RELEASE</spring.version>
 		<hibernate.version>5.2.4.Final</hibernate.version>
-		<spring-data-jpa.version>1.6.0.RELEASE</spring-data-jpa.version>
+		<spring-data-jpa.version>1.10.4.RELEASE</spring-data-jpa.version>
 		<tomcat-jdbc.version>7.0.53</tomcat-jdbc.version>
 		<sitemesh.version>3.0.1</sitemesh.version>
 		<shiro.version>1.3.2</shiro.version>
@@ -335,18 +335,6 @@
 		-->
 
 		<!-- jetty -->
-		<!--<dependency>
-			<groupId>org.eclipse.jetty.aggregate</groupId>
-			<artifactId>jetty-webapp</artifactId>
-			<version>${jetty.version}</version>
-			<scope>test</scope>
-		</dependency>-->
-		<!--<dependency>
-			<groupId>org.eclipse.jetty</groupId>
-			<artifactId>jetty-jsp</artifactId>
-			<version>${jetty.version}</version>
-			<scope>test</scope>
-		</dependency>-->
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-server</artifactId>
@@ -479,7 +467,7 @@
 										<exclude>org.springframework</exclude>
 									</excludes>
 									<includes>
-										<include>org.springframework:*:4.0.*</include>
+										<include>org.springframework:*:4.*.*</include>
 									</includes>
 								</bannedDependencies>
 							</rules>
@@ -490,24 +478,6 @@
 			</plugin>
 
 			<!-- jetty插件, 设定context path与spring profile -->
-<!--			<plugin>
-				<groupId>org.mortbay.jetty</groupId>
-				<artifactId>jetty-maven-plugin</artifactId>
-				<version>${jetty.version}</version>
-				<configuration>
-					<systemProperties>
-						<systemProperty>
-							<name>spring.profiles.active</name>
-							<value>development</value>
-						</systemProperty>
-					</systemProperties>
-					<useTestClasspath>true</useTestClasspath>
-
-					<webAppConfig>
-						<contextPath>/${project.artifactId}</contextPath>
-					</webAppConfig>
-				</configuration>
-			</plugin>-->
 
 			<plugin>
 				<groupId>org.eclipse.jetty</groupId>
@@ -545,7 +515,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-antrun-plugin</artifactId>
-				<version>1.7</version>
+				<version>1.8</version>
 			</plugin>
 		</plugins>
 		<pluginManagement>  
@@ -576,6 +546,12 @@
             </plugin>  
         </plugins>  
     </pluginManagement>  
+    <resources>
+		<resource>
+			<directory>src/main/resources</directory>
+			<filtering>true</filtering>
+		</resource>
+	</resources>
 	</build>
 
 	<profiles>
