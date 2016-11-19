@@ -40,20 +40,22 @@ public class SystemUserService {
 
 	private static Logger logger = LoggerFactory.getLogger(SystemUserService.class);
 
-	private SystemUserDao userDao;
+	@Autowired
+	private SystemUserDao systemUserDao;
+	@Autowired
 	private TaskDao taskDao;
 	private Clock clock = Clock.DEFAULT;
 
 	public List<SystemUser> getAllUser() {
-		return (List<SystemUser>) userDao.findAll();
+		return (List<SystemUser>) systemUserDao.findAll();
 	}
 
 	public SystemUser getUser(Long id) {
-		return userDao.findOne(id);
+		return systemUserDao.findOne(id);
 	}
 
 	public SystemUser findUserByLoginName(String loginName) {
-		return userDao.findByLoginName(loginName);
+		return systemUserDao.findByLoginName(loginName);
 	}
 
 	public void registerUser(SystemUser user) {
@@ -61,14 +63,14 @@ public class SystemUserService {
 		user.setRoles("user");
 		user.setRegisterDate(clock.getCurrentDate());
 
-		userDao.save(user);
+		systemUserDao.save(user);
 	}
 
 	public void updateUser(SystemUser user) {
 		if (StringUtils.isNotBlank(user.getPlainPassword())) {
 			entryptPassword(user);
 		}
-		userDao.save(user);
+		systemUserDao.save(user);
 	}
 
 	public void deleteUser(Long id) {
@@ -76,7 +78,7 @@ public class SystemUserService {
 			logger.warn("操作员{}尝试删除超级管理员用户", getCurrentUserName());
 			throw new ServiceException("不能删除超级管理员用户");
 		}
-		userDao.delete(id);
+		systemUserDao.delete(id);
 		taskDao.deleteBySystemUserId(id);
 
 	}
@@ -105,16 +107,6 @@ public class SystemUserService {
 
 		byte[] hashPassword = Digests.sha1(user.getPlainPassword().getBytes(), salt, HASH_INTERATIONS);
 		user.setPassword(Encodes.encodeHex(hashPassword));
-	}
-
-	@Autowired
-	public void setUserDao(SystemUserDao userDao) {
-		this.userDao = userDao;
-	}
-
-	@Autowired
-	public void setTaskDao(TaskDao taskDao) {
-		this.taskDao = taskDao;
 	}
 
 	public void setClock(Clock clock) {
