@@ -11,7 +11,7 @@
     <module>plat</module>
     <module>web</module>
   </modules>
-  
+
   <properties>
 		<!-- 主要依赖库的版本定义 -->
 		<argLine>-Dfile.encoding=UTF-8</argLine>
@@ -35,13 +35,15 @@
 		<selenium.version>2.42.2</selenium.version>
 		<jetty.version>9.3.11.v20160721</jetty.version>
 		<h2.version>1.3.176</h2.version>
-	
+	  <httpclient.version>4.5.2</httpclient.version>
+	  <xstream.version>1.4.9</xstream.version>
+
 		<!-- Plugin的属性定义 -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
-	
+
 		<!-- 项目属性 -->
-		<!-- 
+		<!--
 		<jdbc.driver.groupId>com.h2database</jdbc.driver.groupId>
 		<jdbc.driver.artifactId>h2</jdbc.driver.artifactId>
 		<jdbc.driver.version>${h2.version}</jdbc.driver.version>
@@ -49,19 +51,19 @@
 			<jdbc.driver.groupId>mysql</jdbc.driver.groupId>
 			<jdbc.driver.artifactId>mysql-connector-java</jdbc.driver.artifactId>
 			<jdbc.driver.version>5.1.40</jdbc.driver.version>
-			
+
 	</properties>
 
 	<prerequisites>
   		<maven>3.0.0</maven>
 	</prerequisites>
 
-	<!-- 设定插件仓库, 如有Nexus私服, 取消注释并指向正确的服务器地址. 
-	<pluginRepositories> 
-		<pluginRepository> 
+	<!-- 设定插件仓库, 如有Nexus私服, 取消注释并指向正确的服务器地址.
+	<pluginRepositories>
+		<pluginRepository>
 			<id>nexus</id>
 			<name>Team Nexus Repository</name>
-			<url>http://localhost:8081/nexus/content/groups/public</url> 
+			<url>http://localhost:8081/nexus/content/groups/public</url>
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
@@ -71,6 +73,31 @@
 
 	<!-- 依赖项定义 -->
 	<dependencies>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>${httpclient.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.ant</groupId>
+			<artifactId>ant</artifactId>
+			<version>1.9.7</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20160810</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.thoughtworks.xstream</groupId>
+			<artifactId>xstream</artifactId>
+			<version>${xstream.version}</version>
+		</dependency>
+
 		<!-- SPRINGSIDE -->
 		<dependency>
 			<groupId>io.springside</groupId>
@@ -460,7 +487,7 @@
 								<requireJavaVersion>
 									<version>${java.version}</version>
 								</requireJavaVersion>
-								<bannedDependencies>
+								<!--<bannedDependencies>
 									<searchTransitive>true</searchTransitive>
 									<excludes>
 										<exclude>commons-logging</exclude>
@@ -470,7 +497,7 @@
 									<includes>
 										<include>org.springframework:*:4.*.*</include>
 									</includes>
-								</bannedDependencies>
+								</bannedDependencies>-->
 							</rules>
 							<fail>true</fail>
 						</configuration>
@@ -519,34 +546,34 @@
 				<version>1.8</version>
 			</plugin>
 		</plugins>
-		<pluginManagement>  
-        <plugins>   
-            <plugin>  
-                <groupId>org.eclipse.m2e</groupId>  
-                <artifactId>lifecycle-mapping</artifactId>  
-                <version>1.0.0</version>  
-                <configuration>  
-                    <lifecycleMappingMetadata>  
-                        <pluginExecutions>  
-                            <pluginExecution>  
-                                <pluginExecutionFilter>  
-                                    <groupId>org.apache.maven.plugins</groupId>  
-                                    <artifactId>maven-enforcer-plugin</artifactId>  
-                                    <versionRange>[1.0.0,)</versionRange>  
-                                    <goals>  
-                                        <goal>enforce</goal>  
-                                    </goals>  
-                                </pluginExecutionFilter>  
-                                <action>  
-                                    <ignore />  
-                                </action>  
-                            </pluginExecution>  
-                        </pluginExecutions>  
-                    </lifecycleMappingMetadata>  
-                </configuration>  
-            </plugin>  
-        </plugins>  
-    </pluginManagement>  
+		<pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.eclipse.m2e</groupId>
+                <artifactId>lifecycle-mapping</artifactId>
+                <version>1.0.0</version>
+                <configuration>
+                    <lifecycleMappingMetadata>
+                        <pluginExecutions>
+                            <pluginExecution>
+                                <pluginExecutionFilter>
+                                    <groupId>org.apache.maven.plugins</groupId>
+                                    <artifactId>maven-enforcer-plugin</artifactId>
+                                    <versionRange>[1.0.0,)</versionRange>
+                                    <goals>
+                                        <goal>enforce</goal>
+                                    </goals>
+                                </pluginExecutionFilter>
+                                <action>
+                                    <ignore />
+                                </action>
+                            </pluginExecution>
+                        </pluginExecutions>
+                    </lifecycleMappingMetadata>
+                </configuration>
+            </plugin>
+        </plugins>
+    </pluginManagement>
     <resources>
 		<resource>
 			<directory>src/main/resources</directory>
@@ -621,5 +648,5 @@
 			</build>
 		</profile>
 	</profiles>
-  
+
 </project>

@@ -30,7 +30,8 @@
 				/api/** = anon
 				/register/** = anon
 				/admin/** = roles[admin]
-				/** = user
+				<!--/** = user-->
+				/weixin = anon
 			</value>
 		</property>
 	</bean>
