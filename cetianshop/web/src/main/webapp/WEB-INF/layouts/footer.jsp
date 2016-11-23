@@ -1,5 +1,44 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
-<div id="footer">
-	Copyright &copy; 2005-2012 <a href="http://www.springside.org.cn">springside.org.cn</a>
+<div class="web-info">
+	<div>
+		Copyright &copy; 2016
+	</div>
+	<div>
+		滇icp备xxxxxxxx号
+	</div>
+</div>
+<div class="menu">
+    <ul style="list-style: none;">
+        <li style="display: inline-block;width: 18%;height: auto;vertical-align: top">
+            <a href="#">
+                <span class="glyphicon glyphicon-home" style="font-size: 50px"></span>
+                <span class="sr-only" style="position: relative;font-size: 40px;display: block;width: inherit;height: inherit">家</span>
+            </a>
+        </li>
+        <li style="display: inline-block;width: 18%;height: auto;vertical-align: top">
+            <a href="#">
+                <span class="glyphicon glyphicon-home" style="font-size: 50px"></span>
+                <span class="sr-only" style="position: relative;font-size: 40px;display: block;width: inherit;height: inherit">家</span>
+            </a>
+        </li>
+        <li style="display: inline-block;width: 18%;height: auto;vertical-align: top">
+            <a href="#">
+                <span class="glyphicon glyphicon-home" style="font-size: 50px"></span>
+                <span class="sr-only" style="position: relative;font-size: 40px;display: block;width: inherit;height: inherit">家</span>
+            </a>
+        </li>
+        <li style="display: inline-block;width: 18%;height: auto;vertical-align: top">
+            <a href="#">
+                <span class="glyphicon glyphicon-home" style="font-size: 50px"></span>
+                <span class="sr-only" style="position: relative;font-size: 40px;display: block;width: inherit;height: inherit">家</span>
+            </a>
+        </li>
+        <li style="display: inline-block;width: 18%;height: auto;vertical-align: top">
+            <a href="#">
+                <span class="glyphicon glyphicon-home" style="font-size: 50px"></span>
+                <span class="sr-only" style="position: relative;font-size: 40px;display: block;width: inherit;height: inherit">家</span>
+            </a>
+        </li>
+    </ul>
 </div>
 

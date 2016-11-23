@@ -6,32 +6,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>QuickStart示例:<sitemesh:write property='title' /></title>
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta http-equiv="Cache-Control" content="no-store" />
-<meta http-equiv="Pragma" content="no-cache" />
-<meta http-equiv="Expires" content="0" />
+    <title>QuickStart示例:<sitemesh:write property='title' /></title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Cache-Control" content="no-store" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
 
-<link type="image/x-icon" href="${ctx}/static/images/favicon.ico" rel="shortcut icon">
-<link href="${ctx}/static/bootstrap/2.3.2/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
-<link href="${ctx}/static/jquery-validation/1.11.1/validate.css" type="text/css" rel="stylesheet" />
-<link href="${ctx}/static/styles/default.css" type="text/css" rel="stylesheet" />
-<script src="${ctx}/static/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="${ctx}/static/jquery-validation/1.11.1/jquery.validate.min.js" type="text/javascript"></script>
-<script src="${ctx}/static/jquery-validation/1.11.1/messages_bs_zh.js" type="text/javascript"></script>
-
-
-	<sitemesh:write property='head' />
+    <link type="image/x-icon" href="${ctx}/static/images/favicon.ico" rel="shortcut icon">
+    <link href="${ctx}/static/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    <link href="${ctx}/static/bootstrap/css/bootstrap-theme.min.css" type="text/css" rel="stylesheet" />
+    <link href="${ctx}/static/jquery-validation/1.11.1/validate.css" type="text/css" rel="stylesheet" />
+    <link href="${ctx}/static/styles/default.css" type="text/css" rel="stylesheet" />
+    <link href="${ctx}/static/styles/jquery-accordion-menu.css" type="text/css" rel="stylesheet"/>
+    <link href="${ctx}/static/styles/font-awesome.min.css" type="text/css" rel="stylesheet"/>
+    <script src="${ctx}/static/jquery/jquery.min.js" type="text/javascript"></script>
+    <script src="${ctx}/static/jquery-validation/1.11.1/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="${ctx}/static/jquery-validation/1.11.1/messages_bs_zh.js" type="text/javascript"></script>
+    <script src="${ctx}/static/jquery/jquery-accordion-menu.js" type="text/javascript"></script>
+    <sitemesh:write property='head' />
 </head>
 
 <body>
-	<div class="container">
-        <%@include file="header.jsp"%>
-		<div id="content">
-			<sitemesh:write property='body' />
-		</div>
-        <%@include file="footer.jsp"%>
-	</div>
-	<script src="${ctx}/static/bootstrap/2.3.2/js/bootstrap.min.js" type="text/javascript"></script>
+    <div class="container-fluid">
+        <div class="row" id="header">
+            <%@include file="header.jsp"%>
+        </div>
+        <div class="slidebar mobile">
+            <%@include file="slidebar.jsp"%>
+        </div>
+        <div class="row main-content">
+            <sitemesh:write property='body' />
+        </div>
+        <div class="row" id="footer">
+            <%@include file="footer.jsp"%>
+        </div>
+    </div>
+    <script src="${ctx}/static/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="${ctx}/static/js/default.js" type="application/javascript"></script>
 </body>
 </html>

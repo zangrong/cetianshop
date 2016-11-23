@@ -1,20 +1,48 @@
+html,body,.container-fluid{height: 100%}
 /* header */
-#header {margin-bottom:15px;}
-
-#header h1 a {
-	color: #658A16;
-	text-decoration: none
-}
-
-#header h1 small {color: #BACE87;}
+#header {height: 10%;background-color: #d6e9c6}
+@media screen and (max-device-width: 768px){#header{height: 7%}}
 
 /* footer */
-#footer {
-	margin-top: 15px;
-	padding: 15px 0px 0px 0px;
-	font-size: 95%;
-	text-align: center;
-	border-top: 2px solid #658A16;
-}
+#footer {margin-bottom: 1px; padding: 15px 0px 0px 0px; font-size: 95%; text-align: center; width: 100%; border-top: 2px solid #658A16; position: absolute;background-color: rgba(108, 149, 153, 0.4)  }
+@media screen and (max-device-width: 768px){#footer{position: fixed;bottom: 0px}}
+.web-info{display: block}
+@media screen and (max-device-width: 768px){.web-info{display: none}}
+.menu{display: none}
+@media screen and (max-device-width: 768px){.menu{display: block}}
+.glyphicon-name{position: relative;top: 1px;display: block;font-family: "Glyphicons Halflings";font-style: normal;font-weight: 400;line-height: 1;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing:grayscale}
+.title{display: inline-block;margin-left: 0%;text-align: center;font-size: xx-large;font-family: arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", "微軟正黑體", "儷黑 Pro", sans-serif}
+@media screen and (max-device-width: 768px){.title{margin-left: 30%}}
+.title-pane{position: relative;margin-top: 30px}
+.login{float: right;display: block}
+@media screen and (max-device-width: 768px){.login{display: none}}
+*{box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;}
+body{background:#f0f0f0;}
 
-#footer a {color: #999;}
+.filterinput{ background-color:rgba(249, 244, 244, 0); border-radius:15px; width:90%; height:30px; border:thin solid #FFF; text-indent:0.5em; font-weight:bold; color:#FFF;  }
+#demo-list a{ overflow:hidden; text-overflow:ellipsis; -o-text-overflow:ellipsis; white-space:nowrap; width:100%;  }
+
+/*轮播图*/
+.banner { overflow: hidden; height: 100px; width: auto}
+.banner li { list-style: none; }
+
+.content{width:15%;margin:20px auto;float: left;padding-left: 10px}
+@media screen and (max-device-width: 768px){ .content{width:100%;float: left;position: absolute;height: 100%;background-color: rgba(201, 198, 159, 0.33);z-index: 50}}
+.list{display: none}
+@media screen and (max-device-width: 768px){.list{display: block;}}
+
+.ico{padding-top: 2%}
+.slidebar{display: block;height: auto}
+.mobile{display: block;z-index: 50}
+@media screen and (max-device-width: 768px){.mobile{display: none; z-index: 5}.slidebar{height: 100%}}
+.main-content{padding-left: 17%}
+@media screen and (max-device-width: 768px){.main-content{padding-left: 0%;position: absolute;top: 8%}}
+.carousel-img{height: 300px !important;width: 100%}
+@media screen and (max-device-width: 768px){.carousel-img{height: 150px !important;}}
+
+.carousel.slide{margin-top: 20px}
+
+.content-box ul{padding-top: 20px;margin-left: 20px}
+
+.goods{padding-left: 10px;margin-top: 10px;padding-right: 30px;display: inline-block;box-shadow: 1px 1px 1px 1px #a1a1a1  }
+.name,.img{display: block}

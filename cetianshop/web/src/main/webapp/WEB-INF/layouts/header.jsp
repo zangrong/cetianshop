@@ -2,27 +2,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
-<div id="header">
-	<div id="title">
-	    <h1><a href="${ctx}">QuickStart示例</a><small>--TodoList应用演示</small>
-	    <shiro:user>
-			<div class="btn-group pull-right">
-				<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-					<i class="icon-user"></i> <shiro:principal property="name"/>
-					<span class="caret"></span>
-				</a>
-			
-				<ul class="dropdown-menu">
-					<shiro:hasRole name="admin">
-						<li><a href="${ctx}/admin/user">Admin Users</a></li>
-						<li class="divider"></li>
-					</shiro:hasRole>
-					<li><a href="${ctx}/api">APIs</a></li>
-					<li><a href="${ctx}/profile">Edit Profile</a></li>
-					<li><a href="${ctx}/logout">Logout</a></li>
-				</ul>
-			</div>
-		</shiro:user>
-		</h1>
-	</div>
+<div class="col-sm-2 list ico">
+	<button class="btn btn-default btn-lg" id="li">
+		<span class="glyphicon glyphicon-th-list"></span>
+	</button>
+</div>
+<div class="col-sm-10 col-md-8 col-md-offset-4 title-pane">
+    <div class="title">
+        xxx商城
+    </div>
+    <div class="login">
+        <a href="#"><label> 注册 /</label></a>
+        <a href="#"><label> 登录 </label></a>
+    </div>
 </div>
