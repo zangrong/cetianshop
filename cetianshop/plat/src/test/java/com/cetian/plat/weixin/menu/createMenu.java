@@ -29,7 +29,7 @@ public class createMenu {
 
         ViewButton viewButton = new ViewButton();
         viewButton.setName("微官网");
-        viewButton.setUrl("https://www.baidu.com");
+        viewButton.setUrl("http://1a6080f955.iask.in/web/index");
         menu.setButton(new Button[]{clickButton,viewButton});
 
         String getAccessTokenUrl = String.format("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=%s&secret=%s", "wx66f67263ca7816c2", "d4624c36b6795d1d99dcf0547af5443d");
